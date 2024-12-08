@@ -1,7 +1,17 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
-  /* config options here */
+module.exports = {
+  async redirects() {
+      return [
+          {
+              source: '/dashboard',
+              has: [
+                  {
+                      type: 'query',
+                      key: 'callbackUrl',
+                  },
+              ],
+              destination: '/dashboard/stok',
+              permanent: false,
+          },
+      ];
+  },
 };
-
-export default nextConfig;
